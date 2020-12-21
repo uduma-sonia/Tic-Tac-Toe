@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=7" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Tic Tac Toe</title>
+  </head>
+  <body>
+    <form class="form-container">
+      <label for="Oplayer">O Player: </label>
+      <input class="Oplayer" type="text" id="Oplayer" />
+      <label for="Xplayer">X Player: </label>
+      <input class="Xplayer" type="text" id="Xplayer" />
+    </form>
+
+    <div class="board" id="board">
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+    </div>
+
+    <div class="winMsg" id="winMsg">
+      <div data-win-msg-text></div>
+      <button id="restartBtn">Restart</button>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

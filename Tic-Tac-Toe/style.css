@@ -1,0 +1,170 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --cell-size: 100px;
+  --mark-size: calc(var(--cell-size) * 0.9);
+}
+
+body {
+  position: relative;
+}
+
+.board {
+  width: 100%;
+  height: 80vh;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: repeat(3, auto);
+}
+
+.cell {
+  position: relative;
+  width: var(--cell-size);
+  height: var(--cell-size);
+  background-color: rgb(247, 230, 207);
+  margin: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* X */
+.cell.x::before,
+.cell.x::after,
+.board.x .cell:not(.x):not(.circle):hover::before,
+.board.x .cell:not(.x):not(.circle):hover::after {
+  content: "";
+  position: absolute;
+  width: calc(var(--mark-size) * 0.15);
+  height: calc(var(--mark-size));
+  background-color: black;
+}
+
+.cell.x::after,
+.board.x .cell:not(.x):not(.circle):hover::after {
+  transform: rotate(-45deg);
+}
+.cell.x::before,
+.board.x .cell:not(.x):not(.circle):hover::before {
+  transform: rotate(45deg);
+}
+
+.cell.x::after,
+.cell.x::before,
+.cell.circle::before,
+.cell.circle::before {
+  background-color: #111;
+}
+
+/* CIRCLE */
+.cell.circle::before,
+.cell.circle::after,
+.board.circle .cell:not(.x):not(.circle):hover::before,
+.board.circle .cell:not(.x):not(.circle):hover::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+
+.cell.circle::before,
+.board.circle .cell:not(.x):not(.circle):hover::before {
+  width: calc(var(--mark-size));
+  height: calc(var(--mark-size));
+}
+
+.cell.circle::after,
+.board.circle .cell:not(.x):not(.circle):hover::after {
+  background-color: #fff;
+  width: calc(var(--mark-size) * 0.7);
+  height: calc(var(--mark-size) * 0.7);
+}
+
+.cell.x,
+.cell.circle {
+  cursor: not-allowed;
+}
+
+.board.x .cell:not(.x):not(.circle):hover::before,
+.board.x .cell:not(.x):not(.circle):hover::after,
+.board.circle .cell:not(.x):not(.circle):hover::after,
+.board.circle .cell:not(.x):not(.circle):hover::before {
+  background-color: gray;
+}
+
+/* BUTTON */
+
+.winMsg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(247, 238, 222);
+  font-size: 5rem;
+  flex-direction: column;
+  display: none;
+}
+
+.winMsg button {
+  font-size: 3rem;
+  background-color: #fff;
+  border: 1px solid black;
+  padding: 0.25em 0.5em;
+}
+
+.winMsg button:hover {
+  background-color: black;
+  color: #fff;
+  border-color: #fff;
+}
+
+.winMsg.show {
+  display: flex;
+}
+
+form {
+  width: 100vw;
+  background-color: rgb(236, 234, 234);
+  font-size: 1.3rem;
+  padding: 0.5em 1em;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+label {
+  font-weight: 600;
+}
+
+input {
+  margin: 5px 10px;
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-transform: capitalize;
+  background-color: transparent;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  outline: none;
+}
+
+@media (max-width: 600px) {
+  form {
+    font-size: 1rem;
+    flex-direction: column;
+  }
+}

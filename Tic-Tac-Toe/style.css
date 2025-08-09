@@ -60,10 +60,13 @@ body {
 }
 
 .cell.x::after,
-.cell.x::before,
+.cell.x::before {
+  background-color: red;
+}
+
 .cell.circle::before,
 .cell.circle::before {
-  background-color: #111;
+  background-color: blue;
 }
 
 /* CIRCLE */
@@ -160,6 +163,13 @@ input {
   border-right: none;
   border-left: none;
   outline: none;
+}
+
+#Xplayer {
+  border-color: red;
+}
+#Oplayer {
+  border-color: blue;
 }
 
 @media (max-width: 600px) {
